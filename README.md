@@ -1,9 +1,9 @@
-# TripCraft — AI Travel Planning & Experience Engine 🧭✈️
+# NEXTRIP.AI — AI Travel Planning & Experience Engine 🧭✈️
 
 > **Problem Statement:** Plan trips dynamically with preferences, constraints, and real-time updates.  
 > Built for **ML Bhopal Hackathon**.
 
-![TripCraft Demo](https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&auto=format&fit=crop&q=80)
+![NEXTRIP.AI Demo](https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&auto=format&fit=crop&q=80)
 
 ---
 
