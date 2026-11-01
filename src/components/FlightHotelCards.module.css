@@ -5,7 +5,7 @@
 }
 
 .card {
-  padding: 20px 24px;
+  padding: 22px 26px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,11 +13,14 @@
   transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 14px;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  border-color: rgba(99, 179, 237, 0.4);
+  border-color: #EE4336;
 }
 
 .highlightBadge {
@@ -43,25 +46,26 @@
 }
 
 .airlineLogo {
-  font-size: 1.8rem;
-  background: rgba(255, 255, 255, 0.05);
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  font-size: 1.6rem;
+  background: #121212;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--border);
+  border: 1px solid #2A2A2E;
 }
 
 .airlineName {
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
 }
 
 .flightClass {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: #71717a;
 }
 
 .timeSegment {
@@ -77,14 +81,16 @@
 }
 
 .timeValue {
-  font-size: 1.25rem;
-  font-weight: 700;
-  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: monospace;
+  color: #ffffff;
 }
 
 .timeCity {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+  font-size: 0.7rem;
+  color: #a1a1aa;
+  text-transform: uppercase;
 }
 
 .flightRoute {
@@ -96,25 +102,26 @@
 }
 
 .routeDuration {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+  font-size: 0.7rem;
+  color: #a1a1aa;
+  font-family: monospace;
 }
 
 .routeLine {
   width: 100%;
-  height: 2px;
-  background: var(--border);
+  height: 1px;
+  background: #2A2A2E;
   position: relative;
 }
 
 .routeLine::after {
   content: '✈';
   position: absolute;
-  top: -8px;
+  top: -9px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.75rem;
-  color: var(--accent-blue);
+  color: #EE4336;
 }
 
 /* Hotel Details */
@@ -127,9 +134,9 @@
 .hotelImage {
   width: 160px;
   height: 110px;
-  border-radius: var(--radius-sm);
+  border-radius: 8px;
   object-fit: cover;
-  border: 1px solid var(--border);
+  border: 1px solid #2A2A2E;
 }
 
 .hotelInfo {
@@ -141,18 +148,19 @@
 
 .hotelStars {
   color: #fbbf24;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   letter-spacing: 2px;
 }
 
 .hotelName {
   font-size: 1.15rem;
   font-weight: 700;
+  color: #ffffff;
 }
 
 .hotelLocation {
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: #a1a1aa;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -166,12 +174,12 @@
 }
 
 .amenityChip {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
+  background: #121212;
+  border: 1px solid #2A2A2E;
   border-radius: 4px;
   padding: 2px 8px;
   font-size: 0.7rem;
-  color: var(--text-secondary);
+  color: #a1a1aa;
 }
 
 /* Action Block */
@@ -181,20 +189,20 @@
   align-items: flex-end;
   gap: 8px;
   min-width: 140px;
-  border-left: 1px solid var(--border);
+  border-left: 1px solid #2A2A2E;
   padding-left: 20px;
 }
 
 .priceValue {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: monospace;
 }
 
 .priceSub {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.7rem;
+  color: #71717a;
 }
 
 @media (max-width: 768px) {
@@ -208,7 +216,7 @@
     justify-content: space-between;
     align-items: center;
     border-left: none;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid #2A2A2E;
     padding-left: 0;
     padding-top: 14px;
   }

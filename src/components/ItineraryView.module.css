@@ -11,22 +11,26 @@
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 16px;
 }
 
 .bannerTitle {
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 0.03em;
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #ffffff;
 }
 
 .bannerMeta {
   display: flex;
   gap: 24px;
   margin-top: 6px;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  color: #a1a1aa;
 }
 
 .metaItem {
@@ -36,25 +40,27 @@
 }
 
 .metaHighlight {
-  color: var(--accent-blue);
-  font-weight: 600;
+  color: #EE4336;
+  font-weight: 700;
 }
 
 .tabsBar {
   display: flex;
-  gap: 12px;
-  border-bottom: 1px solid var(--border);
+  gap: 10px;
+  border-bottom: 1px solid #2A2A2E;
   padding-bottom: 4px;
 }
 
 .tabBtn {
   background: transparent;
   border: none;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  font-weight: 600;
+  color: #a1a1aa;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   padding: 10px 18px;
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
   display: flex;
@@ -63,14 +69,13 @@
 }
 
 .tabBtn:hover {
-  color: var(--text-primary);
+  color: #ffffff;
   background: rgba(255, 255, 255, 0.04);
 }
 
 .tabBtnActive {
-  color: var(--accent-blue);
-  background: rgba(56, 189, 248, 0.1);
-  border-bottom: 2px solid var(--accent-blue);
+  color: #ffffff;
+  background: #EE4336;
 }
 
 /* Day Cards */
@@ -81,9 +86,15 @@
 }
 
 .dayCard {
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   overflow: hidden;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
   transition: all 0.2s ease;
+}
+
+.dayCard:hover {
+  border-color: rgba(238, 67, 54, 0.4);
 }
 
 .dayHeader {
@@ -106,35 +117,39 @@
 }
 
 .dayNumberBadge {
-  background: var(--gradient-btn);
+  background: #EE4336;
   color: #fff;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 6px 14px;
-  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   white-space: nowrap;
 }
 
 .dayTheme {
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .dayDate {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.75rem;
+  color: #71717a;
   margin-top: 2px;
 }
 
 .dayCost {
   font-size: 0.9rem;
-  color: var(--accent-green);
-  font-weight: 600;
+  color: #4ade80;
+  font-weight: 700;
   margin-right: 14px;
+  font-family: monospace;
 }
 
 .chevron {
-  color: var(--text-secondary);
+  color: #a1a1aa;
   transition: transform 0.3s;
 }
 
@@ -148,7 +163,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #2A2A2E;
+  background: #141416;
 }
 
 .timelineItem {
@@ -163,7 +179,7 @@
   bottom: -24px;
   left: 7px;
   width: 2px;
-  background: rgba(255, 255, 255, 0.08);
+  background: #2A2A2E;
 }
 
 .timelineItem:last-child .timelineLine {
@@ -182,9 +198,9 @@
 
 .activityContent {
   flex: 1;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 10px;
   padding: 16px 18px;
 }
 
@@ -198,18 +214,18 @@
 }
 
 .timeBadge {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent-blue);
-  background: rgba(56, 189, 248, 0.1);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #EE4336;
+  background: rgba(238, 67, 54, 0.12);
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .activityName {
   font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: 4px;
 }
 
@@ -217,33 +233,34 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.85rem;
-  color: var(--accent-purple);
+  font-size: 0.8rem;
+  color: #a1a1aa;
   margin-bottom: 8px;
 }
 
 .activityDesc {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  color: #d4d4d8;
   line-height: 1.5;
   margin-bottom: 10px;
 }
 
 .tipsBox {
-  background: rgba(251, 146, 60, 0.08);
-  border-left: 3px solid var(--accent-orange);
+  background: rgba(238, 67, 54, 0.08);
+  border-left: 3px solid #EE4336;
   padding: 8px 12px;
   border-radius: 4px;
   font-size: 0.8rem;
-  color: #fdba74;
+  color: #fca5a5;
 }
 
 .costRow {
   margin-top: 10px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  font-size: 0.75rem;
+  color: #71717a;
   display: flex;
   justify-content: flex-end;
+  font-family: monospace;
 }
 
 /* Packing Checklist */
@@ -252,6 +269,9 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 12px;
   padding: 24px;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 16px;
 }
 
 .checkItem {
@@ -259,20 +279,23 @@
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  background: #121212;
+  border: 1px solid #2A2A2E;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
+  color: #e4e4e7;
+  font-size: 0.85rem;
 }
 
 .checkItem:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(238, 67, 54, 0.05);
+  border-color: #EE4336;
 }
 
 .checked {
   text-decoration: line-through;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 /* Tips & Culture */
@@ -281,13 +304,16 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
   padding: 24px;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 16px;
 }
 
 .tipCard {
   padding: 20px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #121212;
+  border: 1px solid #2A2A2E;
 }
 
 .tipList {
@@ -296,18 +322,20 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 12px;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  color: #a1a1aa;
 }
 
 .emergencyItem {
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #2A2A2E;
+  font-size: 0.85rem;
 }
 
 .phoneNum {
-  color: var(--accent-teal);
-  font-weight: 600;
+  color: #EE4336;
+  font-weight: 700;
+  font-family: monospace;
 }

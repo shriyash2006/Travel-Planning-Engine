@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import {
   TripPreferences,
   Itinerary,
@@ -17,15 +18,19 @@ import FlightHotelCards from '@/components/FlightHotelCards';
 import MapView from '@/components/MapView';
 
 const LOADING_STEPS = [
-  '🤖 Asking Gemini AI to craft custom day-by-day activities...',
-  '🌤️ Fetching real-time weather forecasts and climate data...',
-  '✈️ Scanning flight routes and price optimization matrix...',
-  '🏨 Filtering top-rated stays matching your budget...',
-  '🗺️ Calibrating local transportation and maps...',
-  '✨ Assembling your dynamic travel experience engine...',
+  '🤖 Querying Gemini 1.5 AI for personalized day-by-day roadmap...',
+  '🌤️ Connecting to live OpenWeather climate & atmospheric telemetry...',
+  '✈️ Pricing multi-carrier flight routes and direct schedule matrix...',
+  '🏨 Filtering boutique stays and private villas within budget...',
+  '🗺️ Synthesizing local navigation, walking routes and maps...',
+  '✨ Assembling your bespoke Wayfare.ai experience roadmap...',
 ];
 
-export default function PlanPage() {
+function PlanPageContent() {
+  const searchParams = useSearchParams();
+  const urlDest = searchParams.get('destination') || '';
+  const urlBudget = searchParams.get('budget') ? Number(searchParams.get('budget')) : undefined;
+
   const [step, setStep] = useState<'form' | 'results'>('form');
   const [loading, setLoading] = useState(false);
   const [loadingTextIndex, setLoadingTextIndex] = useState(0);
@@ -57,7 +62,7 @@ export default function PlanPage() {
     setLoadingTextIndex(0);
 
     try {
-      // Execute all 4 external calls in parallel for optimal 5-10s response time
+      // Parallel execution for lightning speed
       const [itineraryRes, weatherRes, flightsRes, hotelsRes] = await Promise.all([
         fetch('/api/generate-itinerary', {
           method: 'POST',
@@ -103,104 +108,42 @@ export default function PlanPage() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', position: 'relative', paddingBottom: 80 }}>
-      {/* Background Orbs */}
-      <div
-        className="glow-orb"
-        style={{
-          top: 0,
-          right: '10%',
-          width: 500,
-          height: 500,
-          background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%)',
-        }}
-      />
-      <div
-        className="glow-orb"
-        style={{
-          top: '40%',
-          left: '5%',
-          width: 550,
-          height: 550,
-          background: 'radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%)',
-        }}
-      />
-
-      {/* Top Navbar */}
-      <header
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '20px 36px',
-          maxWidth: 1320,
-          margin: '0 auto',
-          borderBottom: '1px solid var(--border)',
-          position: 'relative',
-          zIndex: 10,
-        }}
-      >
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div
-            style={{
-              width: 38,
-              height: 38,
-              borderRadius: 10,
-              background: 'var(--gradient-brand)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1.2rem',
-            }}
-          >
-            🧭
+    <div className="bg-[#121212] text-white min-h-screen pb-20">
+      {/* Top Wayfare Sticky Red Navbar */}
+      <nav className="sticky top-0 z-50 bg-[#EE4336] text-white border-b border-red-400/30">
+        <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center space-x-6">
+            <Link className="font-display text-3xl tracking-widest uppercase flex items-center gap-1" href="/">
+              WAYFARE<span className="text-white/80">.AI</span>
+            </Link>
           </div>
-          <span style={{ fontSize: '1.3rem', fontWeight: 800 }}>
-            Trip<span className="gradient-text">Craft</span>
-          </span>
-        </Link>
 
-        {step === 'results' && (
-          <button
-            onClick={() => setStep('form')}
-            className="btn-secondary"
-            style={{ padding: '8px 18px', fontSize: '0.85rem' }}
-          >
-            ← Modify Preferences
-          </button>
-        )}
-      </header>
+          <div className="flex items-center space-x-4">
+            {step === 'results' ? (
+              <button
+                onClick={() => setStep('form')}
+                className="bg-white text-brand-dark px-5 py-2 text-xs font-bold uppercase tracking-wider rounded shadow-sm hover:bg-black hover:text-white transition"
+              >
+                ← New Itinerary
+              </button>
+            ) : (
+              <Link
+                href="/"
+                className="bg-white/20 hover:bg-white/30 text-white px-5 py-2 text-xs font-bold uppercase tracking-wider rounded transition"
+              >
+                ← Back to Home
+              </Link>
+            )}
+          </div>
+        </div>
+      </nav>
 
-      {/* Main Workspace Content */}
-      <main
-        style={{
-          maxWidth: 1240,
-          margin: '36px auto 0',
-          padding: '0 20px',
-          position: 'relative',
-          zIndex: 10,
-        }}
-      >
+      {/* Main Container */}
+      <main className="max-w-[1360px] mx-auto px-6 pt-10">
         {error && (
-          <div
-            className="glass"
-            style={{
-              padding: '16px 20px',
-              border: '1px solid #f87171',
-              background: 'rgba(239, 68, 68, 0.15)',
-              color: '#fca5a5',
-              borderRadius: 'var(--radius-md)',
-              marginBottom: 24,
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
+          <div className="bg-red-500/10 border border-red-500/30 text-red-400 p-4 rounded-xl mb-8 flex justify-between items-center text-sm">
             <span>⚠️ {error}</span>
-            <button
-              onClick={() => setError(null)}
-              style={{ background: 'none', border: 'none', color: '#fca5a5', cursor: 'pointer' }}
-            >
+            <button onClick={() => setError(null)} className="text-red-400 font-bold hover:text-white">
               ✕
             </button>
           </div>
@@ -208,190 +151,155 @@ export default function PlanPage() {
 
         {/* STEP 1: FORM */}
         {step === 'form' && (
-          <TripForm onSubmit={handleSubmit} loading={loading} />
+          <TripForm
+            onSubmit={handleSubmit}
+            loading={loading}
+            initialDestination={urlDest}
+            initialBudget={urlBudget}
+          />
         )}
 
         {/* STEP 2: RESULTS DASHBOARD */}
         {step === 'results' && itinerary && preferences && (
           <div>
             {/* Header Status Bar */}
-            <div
-              className="glass"
-              style={{
-                padding: '24px 28px',
-                marginBottom: 24,
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: 20,
-              }}
-            >
+            <div className="bg-[#1C1C1E] border border-[#2A2A2E] rounded-2xl p-6 sm:p-8 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 shadow-xl">
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <h1 style={{ fontSize: '2rem', fontWeight: 800 }}>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <h1 className="font-condensed text-4xl sm:text-5xl uppercase tracking-tight text-white leading-none">
                     {preferences.origin} ✈️ {preferences.destination}
                   </h1>
-                  <span className="badge badge-purple" style={{ textTransform: 'capitalize' }}>
+                  <span className="bg-brand-red text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full">
                     {preferences.travelStyle} Vibe
                   </span>
                 </div>
 
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: 4 }}>
-                  📅 {preferences.startDate} to {preferences.endDate} · 👥 {preferences.travelers} Traveler(s) · 💰 Budget: {preferences.currency} {preferences.budget.toLocaleString()}
+                <p className="text-zinc-400 text-xs sm:text-sm font-medium tracking-wide uppercase mt-2">
+                  📅 {preferences.startDate} to {preferences.endDate} • 👥 {preferences.travelers} Adult(s) • 💰 Budget: {preferences.currency} {preferences.budget.toLocaleString()}
                 </p>
               </div>
 
               {/* Weather Quick Widget */}
               {weather && (
-                <WeatherWidget
-                  weather={weather}
-                  destination={preferences.destination}
-                />
+                <div className="w-full md:w-auto">
+                  <WeatherWidget weather={weather} destination={preferences.destination} />
+                </div>
               )}
             </div>
 
-            {/* Navigation Tab Bar */}
-            <div
-              style={{
-                display: 'flex',
-                gap: 8,
-                marginBottom: 24,
-                overflowX: 'auto',
-                paddingBottom: 4,
-              }}
-            >
+            {/* Navigation Tabs Bar */}
+            <div className="flex gap-2 mb-8 overflow-x-auto pb-2 border-b border-[#2A2A2E]">
               <button
-                className={`btn-secondary ${activeTab === 'itinerary' ? 'btn-primary' : ''}`}
-                style={{ borderRadius: 'var(--radius-sm)', padding: '10px 20px' }}
                 onClick={() => setActiveTab('itinerary')}
+                className={`px-6 py-3 rounded-t-lg font-condensed text-lg tracking-wider uppercase transition flex items-center gap-2 ${
+                  activeTab === 'itinerary'
+                    ? 'bg-brand-red text-white'
+                    : 'bg-[#1C1C1E] text-zinc-400 hover:text-white hover:bg-[#252528]'
+                }`}
               >
-                📅 Dynamic Itinerary
+                📅 Dynamic Itinerary ({itinerary.days.length} Days)
               </button>
+
               <button
-                className={`btn-secondary ${activeTab === 'budget' ? 'btn-primary' : ''}`}
-                style={{ borderRadius: 'var(--radius-sm)', padding: '10px 20px' }}
                 onClick={() => setActiveTab('budget')}
+                className={`px-6 py-3 rounded-t-lg font-condensed text-lg tracking-wider uppercase transition flex items-center gap-2 ${
+                  activeTab === 'budget'
+                    ? 'bg-brand-red text-white'
+                    : 'bg-[#1C1C1E] text-zinc-400 hover:text-white hover:bg-[#252528]'
+                }`}
               >
-                💰 Budget Tracker
+                💰 Predictive Budget &amp; Expenses
               </button>
+
               <button
-                className={`btn-secondary ${activeTab === 'flights' ? 'btn-primary' : ''}`}
-                style={{ borderRadius: 'var(--radius-sm)', padding: '10px 20px' }}
                 onClick={() => setActiveTab('flights')}
+                className={`px-6 py-3 rounded-t-lg font-condensed text-lg tracking-wider uppercase transition flex items-center gap-2 ${
+                  activeTab === 'flights'
+                    ? 'bg-brand-red text-white'
+                    : 'bg-[#1C1C1E] text-zinc-400 hover:text-white hover:bg-[#252528]'
+                }`}
               >
-                ✈️ Flights ({flights.length})
+                ✈️ Live Flights ({flights.length})
               </button>
+
               <button
-                className={`btn-secondary ${activeTab === 'hotels' ? 'btn-primary' : ''}`}
-                style={{ borderRadius: 'var(--radius-sm)', padding: '10px 20px' }}
                 onClick={() => setActiveTab('hotels')}
+                className={`px-6 py-3 rounded-t-lg font-condensed text-lg tracking-wider uppercase transition flex items-center gap-2 ${
+                  activeTab === 'hotels'
+                    ? 'bg-brand-red text-white'
+                    : 'bg-[#1C1C1E] text-zinc-400 hover:text-white hover:bg-[#252528]'
+                }`}
               >
-                🏨 Stays & Resorts ({hotels.length})
+                🏨 Curated Stays ({hotels.length})
               </button>
+
               <button
-                className={`btn-secondary ${activeTab === 'map' ? 'btn-primary' : ''}`}
-                style={{ borderRadius: 'var(--radius-sm)', padding: '10px 20px' }}
                 onClick={() => setActiveTab('map')}
+                className={`px-6 py-3 rounded-t-lg font-condensed text-lg tracking-wider uppercase transition flex items-center gap-2 ${
+                  activeTab === 'map'
+                    ? 'bg-brand-red text-white'
+                    : 'bg-[#1C1C1E] text-zinc-400 hover:text-white hover:bg-[#252528]'
+                }`}
               >
-                🗺️ Dark Map Explorer
+                🗺️ Geospatial Map Explorer
               </button>
             </div>
 
-            {/* Tab Contents */}
-            {activeTab === 'itinerary' && <ItineraryView itinerary={itinerary} />}
-            {activeTab === 'budget' && (
-              <BudgetTracker
-                totalBudget={preferences.budget}
-                currency={preferences.currency}
-                tripDays={itinerary.duration}
-              />
-            )}
-            {activeTab === 'flights' && (
-              <FlightHotelCards type="flights" flights={flights} />
-            )}
-            {activeTab === 'hotels' && (
-              <FlightHotelCards type="hotels" hotels={hotels} />
-            )}
-            {activeTab === 'map' && <MapView destination={preferences.destination} />}
+            {/* Active Content Tab */}
+            <div>
+              {activeTab === 'itinerary' && <ItineraryView itinerary={itinerary} />}
+              {activeTab === 'budget' && (
+                <BudgetTracker
+                  totalBudget={preferences.budget}
+                  currency={preferences.currency}
+                  tripDays={itinerary.duration}
+                />
+              )}
+              {activeTab === 'flights' && <FlightHotelCards type="flights" flights={flights} />}
+              {activeTab === 'hotels' && <FlightHotelCards type="hotels" hotels={hotels} />}
+              {activeTab === 'map' && <MapView destination={preferences.destination} />}
+            </div>
           </div>
         )}
       </main>
 
-      {/* Full-Screen Loading Overlay */}
+      {/* Full-Screen Loading Overlay with Wayfare Aesthetics */}
       {loading && (
-        <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(7, 11, 20, 0.85)',
-            backdropFilter: 'blur(12px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 100,
-            padding: 24,
-          }}
-        >
-          <div
-            className="glass"
-            style={{
-              maxWidth: 480,
-              width: '100%',
-              padding: '40px 32px',
-              textAlign: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 20,
-              boxShadow: '0 0 50px rgba(56, 189, 248, 0.25)',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
-            }}
-          >
-            <div
-              style={{
-                width: 64,
-                height: 64,
-                borderRadius: '50%',
-                border: '4px solid rgba(56, 189, 248, 0.2)',
-                borderTopColor: 'var(--accent-blue)',
-                animation: 'spin 1s linear infinite',
-              }}
-            />
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 p-6">
+          <div className="bg-[#1C1C1E] border border-[#2A2A2E] rounded-2xl p-10 max-w-md w-full text-center shadow-2xl flex flex-col items-center gap-6">
+            <div className="relative">
+              <div className="w-16 h-16 rounded-full border-4 border-zinc-700 border-t-brand-red animate-spin" />
+              <div className="absolute inset-0 flex items-center justify-center text-xs font-bold text-brand-red">
+                AI
+              </div>
+            </div>
 
             <div>
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: 8 }}>
-                Synthesizing Trip Experience
+              <span className="text-brand-red text-[11px] font-black uppercase tracking-[0.2em] block mb-1">
+                WAYFARE SYNTHESIS ENGINE
+              </span>
+              <h3 className="font-condensed text-3xl uppercase tracking-wider text-white">
+                CRAFTING YOUR BESPOKE VOYAGE
               </h3>
-              <p
-                style={{
-                  color: 'var(--accent-blue)',
-                  fontSize: '0.95rem',
-                  fontWeight: 500,
-                  minHeight: 48,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
+              <p className="text-xs text-zinc-400 mt-2 min-h-12 flex items-center justify-center">
                 {LOADING_STEPS[loadingTextIndex]}
               </p>
             </div>
 
-            <div
-              style={{
-                fontSize: '0.75rem',
-                color: 'var(--text-muted)',
-                background: 'rgba(255, 255, 255, 0.04)',
-                padding: '6px 14px',
-                borderRadius: 9999,
-              }}
-            >
-              Parallel APIs in progress • Estimated time ~8-12 seconds
+            <div className="text-[10px] uppercase tracking-widest text-zinc-500 border border-zinc-800 px-4 py-1.5 rounded-full">
+              Parallel Multi-API Streams • ~8s
             </div>
           </div>
         </div>
       )}
     </div>
+  );
+}
+
+export default function PlanPage() {
+  return (
+    <Suspense fallback={<div className="bg-[#121212] min-h-screen" />}>
+      <PlanPageContent />
+    </Suspense>
   );
 }

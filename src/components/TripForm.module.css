@@ -1,25 +1,32 @@
 .formCard {
-  padding: 32px;
+  padding: 36px;
   position: relative;
   overflow: hidden;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .formHeader {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   text-align: center;
 }
 
 .formTitle {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 2.8rem;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin-bottom: 6px;
 }
 
 .formSubtitle {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
+  color: #a1a1aa;
+  font-size: 0.9rem;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
 
 .gridRow {
@@ -27,30 +34,23 @@
   grid-template-columns: 1fr auto 1fr;
   gap: 16px;
   align-items: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .gridThree {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-bottom: 20px;
-}
-
-.gridTwo {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .swapBtn {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,27 +60,27 @@
 }
 
 .swapBtn:hover {
-  background: rgba(56, 189, 248, 0.2);
-  border-color: var(--accent-blue);
+  background: #EE4336;
+  border-color: #EE4336;
   transform: rotate(180deg);
 }
 
 .counter {
   display: flex;
   align-items: center;
-  background: rgba(13, 21, 39, 0.85);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  background: #121212;
+  border: 1px solid #2A2A2E;
+  border-radius: var(--radius-sm);
   padding: 6px;
 }
 
 .counterBtn {
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: var(--text-primary);
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  color: #ffffff;
   width: 34px;
   height: 34px;
-  border-radius: 8px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,8 +91,9 @@
 }
 
 .counterBtn:hover:not(:disabled) {
-  background: var(--accent-blue);
-  color: #000;
+  background: #EE4336;
+  border-color: #EE4336;
+  color: #ffffff;
 }
 
 .counterBtn:disabled {
@@ -104,7 +105,7 @@
   flex: 1;
   text-align: center;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .budgetRow {
@@ -113,7 +114,7 @@
 }
 
 .currencySelect {
-  width: 100px;
+  width: 105px;
 }
 
 .sectionGroup {
@@ -127,9 +128,9 @@
 }
 
 .styleCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  background: #121212;
+  border: 1px solid #2A2A2E;
+  border-radius: 8px;
   padding: 14px 10px;
   display: flex;
   flex-direction: column;
@@ -140,15 +141,15 @@
 }
 
 .styleCard:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: #EE4336;
+  background: rgba(238, 67, 54, 0.05);
   transform: translateY(-2px);
 }
 
 .styleCardActive {
-  background: rgba(56, 189, 248, 0.12);
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+  background: rgba(238, 67, 54, 0.12);
+  border-color: #EE4336;
+  box-shadow: 0 0 16px rgba(238, 67, 54, 0.25);
 }
 
 .styleEmoji {
@@ -158,13 +159,15 @@
 
 .styleTitle {
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .styleDesc {
   font-size: 0.7rem;
-  color: var(--text-secondary);
+  color: #a1a1aa;
   margin-top: 4px;
 }
 
@@ -175,12 +178,12 @@
 }
 
 .tagChip {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
-  border-radius: 9999px;
+  background: #121212;
+  border: 1px solid #2A2A2E;
+  border-radius: 6px;
   padding: 8px 14px;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+  font-size: 0.8rem;
+  color: #a1a1aa;
   cursor: pointer;
   transition: all 0.2s;
   display: inline-flex;
@@ -189,27 +192,28 @@
 }
 
 .tagChip:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-  color: var(--text-primary);
+  border-color: #EE4336;
+  color: #ffffff;
 }
 
 .tagChipActive {
-  background: rgba(168, 85, 247, 0.18);
-  border-color: var(--accent-purple);
+  background: rgba(238, 67, 54, 0.15);
+  border-color: #EE4336;
   color: #ffffff;
-  font-weight: 500;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.25);
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(238, 67, 54, 0.25);
 }
 
 .submitBtn {
   width: 100%;
-  padding: 16px;
-  font-size: 1.05rem;
+  padding: 18px;
+  font-size: 1rem;
   margin-top: 10px;
+  border-radius: 8px;
 }
 
 @media (max-width: 768px) {
-  .gridRow, .gridThree, .gridTwo {
+  .gridRow, .gridThree {
     grid-template-columns: 1fr;
   }
   .swapBtn {

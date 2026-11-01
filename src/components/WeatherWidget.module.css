@@ -1,13 +1,16 @@
 .widget {
-  padding: 16px 20px;
+  padding: 14px 18px;
   position: relative;
   transition: all 0.3s ease;
   cursor: pointer;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 12px;
   max-width: 440px;
 }
 
 .widget:hover {
-  border-color: rgba(56, 189, 248, 0.4);
+  border-color: #EE4336;
 }
 
 .header {
@@ -20,32 +23,33 @@
 .leftInfo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .weatherIcon {
-  width: 52px;
-  height: 52px;
-  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 0 8px rgba(238, 67, 54, 0.4));
 }
 
 .temp {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 1;
+  font-family: 'Outfit', sans-serif;
 }
 
 .desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+  font-size: 0.8rem;
+  color: #a1a1aa;
   text-transform: capitalize;
   margin-top: 2px;
 }
 
 .cityTag {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #EE4336;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -53,10 +57,10 @@
 .statsRow {
   display: flex;
   gap: 12px;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  border-left: 1px solid var(--border);
-  padding-left: 14px;
+  font-size: 0.7rem;
+  color: #71717a;
+  border-left: 1px solid #2A2A2E;
+  padding-left: 12px;
 }
 
 .statItem {
@@ -65,13 +69,13 @@
 }
 
 .statVal {
-  color: var(--text-primary);
+  color: #ffffff;
   font-weight: 600;
 }
 
 .toggleIcon {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
+  font-size: 1rem;
+  color: #a1a1aa;
   transition: transform 0.3s ease;
 }
 
@@ -80,12 +84,12 @@
 }
 
 .forecastContainer {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #2A2A2E;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  gap: 6px;
 }
 
 .forecastDay {
@@ -93,32 +97,32 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 8px 4px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 6px 2px;
+  background: #121212;
+  border-radius: 6px;
+  border: 1px solid #2A2A2E;
 }
 
 .forecastDate {
-  font-size: 0.7rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  margin-bottom: 2px;
+  font-size: 0.65rem;
+  color: #a1a1aa;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .miniIcon {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 }
 
 .forecastTemps {
   font-size: 0.75rem;
-  font-weight: 600;
-  margin-top: 2px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .forecastMin {
-  color: var(--text-muted);
+  color: #71717a;
   font-size: 0.65rem;
   font-weight: normal;
 }

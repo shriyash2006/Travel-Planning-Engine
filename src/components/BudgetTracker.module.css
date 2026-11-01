@@ -5,7 +5,10 @@
 }
 
 .overviewCard {
-  padding: 24px 28px;
+  padding: 26px 30px;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 16px;
 }
 
 .overviewTop {
@@ -18,13 +21,14 @@
 }
 
 .overviewTitle {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+  color: #ffffff;
 }
 
 .amountsRow {
   display: flex;
-  gap: 24px;
+  gap: 28px;
 }
 
 .amountBlock {
@@ -33,27 +37,29 @@
 }
 
 .amountLabel {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.7rem;
+  color: #71717a;
   text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .amountVal {
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: 'Outfit', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: monospace;
 }
 
 .valNormal {
-  color: var(--accent-blue);
+  color: #ffffff;
 }
 
 .valSpent {
-  color: var(--accent-orange);
+  color: #EE4336;
 }
 
 .valRemaining {
-  color: var(--accent-green);
+  color: #4ade80;
 }
 
 .valExceeded {
@@ -62,8 +68,8 @@
 
 .progressBarContainer {
   width: 100%;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.08);
+  height: 8px;
+  background: #121212;
   border-radius: 9999px;
   overflow: hidden;
   position: relative;
@@ -78,15 +84,15 @@
 /* Category Grid */
 .categoriesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 14px;
 }
 
 .categoryCard {
   padding: 16px 18px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -99,22 +105,25 @@
 }
 
 .categoryName {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .categorySpent {
   font-size: 0.85rem;
   font-weight: 700;
+  font-family: monospace;
 }
 
 .categoryMiniBar {
   width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.06);
+  height: 4px;
+  background: #121212;
   border-radius: 9999px;
   overflow: hidden;
 }
@@ -127,8 +136,8 @@
 .categoryFooter {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.7rem;
+  color: #71717a;
 }
 
 /* Add Expense & Log Row */
@@ -139,15 +148,21 @@
 }
 
 .formCard {
-  padding: 22px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 16px;
 }
 
 .logCard {
-  padding: 22px;
+  padding: 24px;
   overflow-x: auto;
+  background: #1C1C1E;
+  border: 1px solid #2A2A2E;
+  border-radius: 16px;
 }
 
 .logTable {
@@ -159,24 +174,25 @@
 
 .logTable th {
   padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-secondary);
-  font-weight: 600;
+  border-bottom: 1px solid #2A2A2E;
+  color: #a1a1aa;
+  font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
 }
 
 .logTable td {
   padding: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .deleteBtn {
   background: transparent;
   border: none;
-  color: var(--text-muted);
+  color: #71717a;
   cursor: pointer;
-  padding: 4px;
+  padding: 4px 8px;
   border-radius: 4px;
   transition: all 0.2s;
 }
@@ -189,7 +205,8 @@
 .emptyLog {
   text-align: center;
   padding: 36px 0;
-  color: var(--text-muted);
+  color: #71717a;
+  font-size: 0.85rem;
 }
 
 @media (max-width: 900px) {

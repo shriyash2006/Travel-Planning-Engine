@@ -1,12 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TripPreferences } from '@/lib/types';
 import styles from './TripForm.module.css';
 
 interface TripFormProps {
   onSubmit: (prefs: TripPreferences) => void;
   loading: boolean;
+  initialDestination?: string;
+  initialBudget?: number;
 }
 
 const TRAVEL_STYLES = [
@@ -41,26 +43,35 @@ const DIETARY = [
   '🥜 Nut Allergy',
 ];
 
-export default function TripForm({ onSubmit, loading }: TripFormProps) {
+export default function TripForm({ onSubmit, loading, initialDestination, initialBudget }: TripFormProps) {
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const fiveDaysLater = new Date();
   fiveDaysLater.setDate(fiveDaysLater.getDate() + 5);
 
   const [formData, setFormData] = useState<TripPreferences>({
-    origin: 'Bhopal',
-    destination: 'Goa',
+    origin: 'Delhi',
+    destination: initialDestination || 'Bali, Indonesia',
     startDate: tomorrow.toISOString().split('T')[0],
     endDate: fiveDaysLater.toISOString().split('T')[0],
-    budget: 35000,
-    currency: 'INR',
+    budget: initialBudget || 35000,
+    currency: 'USD',
     travelers: 2,
-    travelStyle: 'relaxed',
+    travelStyle: 'luxury',
     dietaryRestrictions: ['🌱 Vegetarian'],
     interests: ['🏖️ Beaches & Islands', '🍜 Street Food & Dining', '📸 Photography Spots'],
-    accommodation: 'mid_range',
+    accommodation: 'luxury',
     transportMode: 'mix',
   });
+
+  useEffect(() => {
+    if (initialDestination) {
+      setFormData((prev) => ({ ...prev, destination: initialDestination }));
+    }
+    if (initialBudget) {
+      setFormData((prev) => ({ ...prev, budget: initialBudget }));
+    }
+  }, [initialDestination, initialBudget]);
 
   const handleSwap = () => {
     setFormData((prev) => ({
@@ -103,10 +114,12 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
   return (
     <div className={`glass ${styles.formCard}`}>
       <div className={styles.formHeader}>
-        <div className="badge badge-blue" style={{ marginBottom: 10 }}>✨ AI-Powered Itinerary Engine</div>
-        <h2 className={styles.formTitle}>Where is your next journey taking you?</h2>
+        <div className="badge badge-red" style={{ marginBottom: 12 }}>
+          WAYFARE.AI TRIP SYNTHESIS
+        </div>
+        <h2 className={`font-condensed ${styles.formTitle}`}>WHERE TO NEXT?</h2>
         <p className={styles.formSubtitle}>
-          Set your destinations, constraints, and tastes. Our engine crafts a dynamic plan with real-time costs and weather.
+          Configure destination parameters, pacing, and dietary constraints. Our AI builds a synchronized day-by-day roadmap with real-time costs and live weather.
         </p>
       </div>
 
@@ -114,11 +127,11 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
         {/* Origin & Destination */}
         <div className={styles.gridRow}>
           <div>
-            <label className="label">Origin City</label>
+            <label className="label">ORIGIN CITY</label>
             <input
               type="text"
               required
-              placeholder="e.g. Bhopal, Delhi, Mumbai"
+              placeholder="e.g. London, New York, Delhi, Tokyo"
               className="input"
               value={formData.origin}
               onChange={(e) => setFormData({ ...formData, origin: e.target.value })}
@@ -135,11 +148,11 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
           </button>
 
           <div>
-            <label className="label">Destination</label>
+            <label className="label">DESTINATION</label>
             <input
               type="text"
               required
-              placeholder="e.g. Goa, Manali, Jaipur, Tokyo"
+              placeholder="e.g. Bali, Kyoto, Santorini, Goa"
               className="input"
               value={formData.destination}
               onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
@@ -150,7 +163,7 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
         {/* Dates & Travelers */}
         <div className={styles.gridThree}>
           <div>
-            <label className="label">Start Date</label>
+            <label className="label">DEPARTURE DATE</label>
             <input
               type="date"
               required
@@ -161,7 +174,7 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
           </div>
 
           <div>
-            <label className="label">End Date</label>
+            <label className="label">RETURN DATE</label>
             <input
               type="date"
               required
@@ -172,7 +185,7 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
           </div>
 
           <div>
-            <label className="label">Travelers</label>
+            <label className="label">TRAVELERS</label>
             <div className={styles.counter}>
               <button
                 type="button"
@@ -183,7 +196,7 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
                 -
               </button>
               <span className={styles.counterValue}>
-                {formData.travelers} {formData.travelers === 1 ? 'Person' : 'People'}
+                {formData.travelers} {formData.travelers === 1 ? 'Adult' : 'Adults'}
               </span>
               <button
                 type="button"
@@ -199,23 +212,23 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
         {/* Budget, Accommodation & Transport */}
         <div className={styles.gridThree}>
           <div>
-            <label className="label">Total Budget</label>
+            <label className="label">BUDGET TARGET</label>
             <div className={styles.budgetRow}>
               <select
                 className={`select ${styles.currencySelect}`}
                 value={formData.currency}
                 onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
               >
-                <option value="INR">₹ INR</option>
                 <option value="USD">$ USD</option>
+                <option value="INR">₹ INR</option>
                 <option value="EUR">€ EUR</option>
                 <option value="GBP">£ GBP</option>
               </select>
               <input
                 type="number"
                 required
-                min={1000}
-                step={500}
+                min={100}
+                step={50}
                 className="input"
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: Number(e.target.value) })}
@@ -224,38 +237,38 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
           </div>
 
           <div>
-            <label className="label">Stay Preference</label>
+            <label className="label">ACCOMMODATION</label>
             <select
               className="select"
               value={formData.accommodation}
               onChange={(e) => setFormData({ ...formData, accommodation: e.target.value as any })}
             >
-              <option value="hostel">🎒 Youth Hostel / Pod</option>
-              <option value="budget_hotel">🏨 Budget Hotel</option>
-              <option value="mid_range">⭐ Mid-Range 3-4★ Hotel</option>
               <option value="luxury">💎 Luxury 5★ Resort</option>
-              <option value="airbnb">🏡 Private Villa / Airbnb</option>
+              <option value="mid_range">⭐ Boutique 4★ Suites</option>
+              <option value="budget_hotel">🏨 Classic Hotel</option>
+              <option value="airbnb">🏡 Private Villa</option>
+              <option value="hostel">🎒 Nomad Pod</option>
             </select>
           </div>
 
           <div>
-            <label className="label">Commute Style</label>
+            <label className="label">TRANSIT PREFERENCE</label>
             <select
               className="select"
               value={formData.transportMode}
               onChange={(e) => setFormData({ ...formData, transportMode: e.target.value as any })}
             >
-              <option value="mix">✨ Smart Mix (Cab + Walk + Metro)</option>
-              <option value="public">🚌 Metro & Public Bus</option>
-              <option value="rental">🚗 Self-Drive Car / Bike</option>
-              <option value="taxi">🚕 Private Cabs / Uber</option>
+              <option value="mix">✨ Smart Mix (Chauffeur + Walk + High-Speed Rail)</option>
+              <option value="taxi">🚕 Private Transfers & Uber</option>
+              <option value="rental">🚗 Self-Drive Vehicle</option>
+              <option value="public">🚌 Metro & Rail</option>
             </select>
           </div>
         </div>
 
         {/* Travel Style 5-card selector */}
         <div className={styles.sectionGroup}>
-          <label className="label">Travel Vibe & Style</label>
+          <label className="label">VOYAGE VIBE & PACING</label>
           <div className={styles.stylesGrid}>
             {TRAVEL_STYLES.map((style) => (
               <div
@@ -275,7 +288,7 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
 
         {/* Interests */}
         <div className={styles.sectionGroup}>
-          <label className="label">Curated Interests & Experiences</label>
+          <label className="label">CURATED PURSUITS & EXPERIENCES</label>
           <div className={styles.tagsContainer}>
             {INTERESTS.map((interest) => {
               const isSelected = formData.interests.includes(interest);
@@ -295,7 +308,7 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
 
         {/* Dietary */}
         <div className={styles.sectionGroup}>
-          <label className="label">Dietary Preferences</label>
+          <label className="label">DIETARY PREFERENCES & RESTRICTIONS</label>
           <div className={styles.tagsContainer}>
             {DIETARY.map((diet) => {
               const isSelected = formData.dietaryRestrictions.includes(diet);
@@ -322,10 +335,10 @@ export default function TripForm({ onSubmit, loading }: TripFormProps) {
           {loading ? (
             <>
               <span className="spinner" />
-              Generating Dynamic Itinerary & Live Rates...
+              SYNTHESIZING TIMELESS VOYAGE WITH AI...
             </>
           ) : (
-            '✨ Generate Dynamic Trip Engine'
+            '✨ SYNTHESIZE TRIP ENGINE NOW ↗'
           )}
         </button>
       </form>
