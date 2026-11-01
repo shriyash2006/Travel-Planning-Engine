@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 export const metadata: Metadata = {
-  title: 'WAYFARE.AI — Timeless Travel with AI Precision',
+  title: 'NEXTRIP.AI — Smart Travel Planning with AI Precision',
   description: 'Plan trips dynamically with preferences, constraints, live weather, real-time budget forecasting, and instant bookings.',
-  keywords: ['travel planner', 'wayfare', 'ai trip planner', 'gemini ai', 'luxury travel', 'hackathon'],
+  keywords: ['travel planner', 'nextrip', 'ai trip planner', 'gemini ai', 'smart travel', 'hackathon'],
 };
 
 export default function RootLayout({
@@ -23,7 +24,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#F6F5F2] text-[#191919] font-sans antialiased selection:bg-brand-red selection:text-white">
-        {children}
+        <ErrorBoundary>{children}</ErrorBoundary>
       </body>
     </html>
   );

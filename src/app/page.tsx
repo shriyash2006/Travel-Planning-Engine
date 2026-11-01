@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-export default function WayfareHomePage() {
+export default function NextripHomePage() {
   const router = useRouter();
 
   // Search Widget State
@@ -69,7 +69,7 @@ export default function WayfareHomePage() {
               </svg>
             </button>
             <Link className="font-display text-3xl tracking-widest uppercase flex items-center gap-1" href="/">
-              WAYFARE<span className="text-white/80">.AI</span>
+              NEXTRIP<span className="text-white/80">.AI</span>
             </Link>
           </div>
 
@@ -1285,7 +1285,7 @@ export default function WayfareHomePage() {
             <div className="bg-brand-carddark p-5 rounded-xl border border-zinc-800">
               <div className="flex text-amber-400 text-xs mb-2">★★★★★</div>
               <p className="text-xs text-zinc-300 mb-4 leading-relaxed">
-                &ldquo;Replaced 4 different apps with Wayfare. The visa check and packing lists were scarily accurate.&rdquo;
+                &ldquo;Replaced 4 different apps with NEXTRIP. The visa check and packing lists were scarily accurate.&rdquo;
               </p>
               <div className="flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -1483,7 +1483,7 @@ export default function WayfareHomePage() {
                   a: 'It combines live pricing, weather, reviews and millions of real trips to build a day-by-day plan tuned to your budget, dates and travel style — in seconds.',
                 },
                 {
-                  q: 'IS WAYFARE REALLY USED BY AI ASSISTANTS?',
+                  q: 'IS NEXTRIP REALLY USED BY AI ASSISTANTS?',
                   a: 'Yes, our semantic search and structured itinerary schemas are queried via API by leading AI models like Gemini, ChatGPT, Claude, and Perplexity for authoritative real-time travel intelligence.',
                 },
                 {
@@ -1491,7 +1491,7 @@ export default function WayfareHomePage() {
                   a: 'Our budget engine models live airfare schedules, verified hotel rates, local meal costs, and entry tickets within 95%+ precision of actual on-ground expenditure.',
                 },
                 {
-                  q: 'CAN I USE WAYFARE FOR FREE?',
+                  q: 'CAN I USE NEXTRIP FOR FREE?',
                   a: 'Absolutely! Our Starter plan provides up to 3 complete AI itineraries each month, real-time weather forecasting, and complete community guides with zero credit card required.',
                 },
               ].map((item, idx) => {
@@ -1569,7 +1569,7 @@ export default function WayfareHomePage() {
             className="max-w-md mx-auto flex flex-col sm:flex-row gap-3"
             onSubmit={(e) => {
               e.preventDefault();
-              alert('✨ Thanks for subscribing to Wayfare AI Weekly!');
+              alert('✨ Thanks for subscribing to NEXTRIP AI Weekly!');
             }}
           >
             <input
@@ -1602,7 +1602,7 @@ export default function WayfareHomePage() {
               </h2>
             </div>
             <div>
-              <span className="font-display text-4xl tracking-widest uppercase text-white/90">WAYFARE.AI</span>
+              <span className="font-display text-4xl tracking-widest uppercase text-white/90">NEXTRIP.AI</span>
             </div>
           </div>
 
@@ -1766,7 +1766,7 @@ export default function WayfareHomePage() {
 
           {/* Bottom Copyright & Status */}
           <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-zinc-500 gap-4">
-            <p>© 2026 Wayfare Technologies Inc. All rights reserved.</p>
+            <p>© 2026 NEXTRIP Technologies Inc. All rights reserved.</p>
             <div className="flex items-center space-x-6">
               <span className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
