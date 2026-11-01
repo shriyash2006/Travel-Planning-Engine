@@ -215,12 +215,13 @@ export default function NextripHomePage() {
             {/* Center: Hero Traveler Image & Collage Elements */}
             <div className="lg:col-span-5 relative flex justify-center">
               <div className="relative max-w-sm sm:max-w-md w-full">
-                {/* Traveler Main Cutout Image - High Quality 2400x3200px */}
+                {/* Traveler Main Cutout Image - High Quality Unsplash 4K */}
+                {/* Photo by Caleb Jones on Unsplash - Yellow directional signpost with global destinations */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  alt="Happy traveler with backpack exploring tropical destination"
+                  alt="Yellow directional signpost showing global travel destinations"
                   className="relative z-10 w-full h-[520px] object-cover rounded-2xl shadow-2xl border-4 border-white/20"
-                  src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=95&w=2400&h=3200&fit=crop&auto=format"
+                  src="https://images.unsplash.com/photo-1488085061387-422e29b40080?q=95&w=2400&fm=jpg&fit=crop"
                 />
 
                 {/* Floating Social Proof Badge */}
