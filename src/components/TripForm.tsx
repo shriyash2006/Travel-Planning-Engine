@@ -115,7 +115,7 @@ export default function TripForm({ onSubmit, loading, initialDestination, initia
     <div className={`glass ${styles.formCard}`}>
       <div className={styles.formHeader}>
         <div className="badge badge-red" style={{ marginBottom: 12 }}>
-          WAYFARE.AI TRIP SYNTHESIS
+          NEXTRIP.AI TRIP SYNTHESIS
         </div>
         <h2 className={`font-condensed ${styles.formTitle}`}>WHERE TO NEXT?</h2>
         <p className={styles.formSubtitle}>
