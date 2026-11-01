@@ -1,9 +1,9 @@
 ---
-name: tripcraft-hackathon
-description: Complete 2-hour execution plan for TripCraft — AI Travel Planning Engine. Astra reads this file and builds the full app end-to-end.
+name: nextrip-hackathon
+description: Complete 2-hour execution plan for NEXTRIP.AI — AI Travel Planning Engine. Astra reads this file and builds the full app end-to-end.
 ---
 
-# TripCraft — AI Travel Planning & Experience Engine
+# NEXTRIP.AI — AI Travel Planning & Experience Engine
 ## 🏁 Hackathon Execution Plan (2 Hours)
 
 > **Stack:** Next.js 15 · TypeScript · Gemini 1.5 Pro · OpenWeather API · Google Maps · Vanilla CSS
@@ -212,7 +212,7 @@ Expense log table: date | day | category badge | description | amount | delete b
 ### src/app/page.tsx — Landing Hero
 
 Structure:
-1. Navbar: "TripCraft" gradient logo left + "Plan a Trip →" button right (links to /plan)
+1. Navbar: "NEXTRIP.AI" gradient logo left + "Plan a Trip →" button right (links to /plan)
 2. Hero section centered:
    - Eyebrow badge: "✨ AI-Powered Travel Planning"  
    - H1: "Plan Your Dream Trip" (gradient text) + "In Minutes" (white)
