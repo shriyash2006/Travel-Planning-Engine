@@ -9,7 +9,10 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: 'City is required' }, { status: 400 });
   }
 
-  const apiKey = process.env.OPENWEATHER_API_KEY;
+  const apiKey =
+    process.env.GOOGLE_WEATHER_API_KEY ||
+    process.env.GOOGLEWEATHER_API_KEY ||
+    process.env.OPENWEATHER_API_KEY;
 
   if (apiKey && apiKey !== 'your_key') {
     try {
