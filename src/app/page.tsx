@@ -215,12 +215,12 @@ export default function NextripHomePage() {
             {/* Center: Hero Traveler Image & Collage Elements */}
             <div className="lg:col-span-5 relative flex justify-center">
               <div className="relative max-w-sm sm:max-w-md w-full">
-                {/* Traveler Main Cutout Image */}
+                {/* Traveler Main Cutout Image - High Quality 2400x3200px */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  alt="Happy traveler sitting on suitcase with passport and tickets"
+                  alt="Happy traveler with backpack exploring tropical destination"
                   className="relative z-10 w-full h-[520px] object-cover rounded-2xl shadow-2xl border-4 border-white/20"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUT6n0tGSXJVeDw-J60Oz2P43Z0ZDOcQsqpP8NA8VR9wDl5deA7ycW5NmFeC2_sxwko33n_66-vDnw1hHIi7EshplITM7bWtJ2Wiei9YuFfDZIKvFRm_vXK8ZpslBNPTGRwKr06eQRPM7vPLqA7MKMaHfFYw-t-Bc-38EQ5GNi0qsS1lsTYezPSVD9nAjnM8v5lPt5LNspG5q8J-AcccPobLDv_e0_jYDac-iKGtM"
+                  src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=95&w=2400&h=3200&fit=crop&auto=format"
                 />
 
                 {/* Floating Social Proof Badge */}
