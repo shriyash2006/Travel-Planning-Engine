@@ -1,5 +1,7 @@
 # 🚀 NEXTRIP.AI - Production Deployment Guide
 
+**Live Production URL:** [https://nextripai-dun.vercel.app](https://nextripai-dun.vercel.app)
+
 ## ✅ Pre-Deployment Checklist
 
 ### 1. **Environment Variables Setup**

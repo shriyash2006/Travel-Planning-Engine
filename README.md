@@ -3,6 +3,9 @@
 > **Problem Statement:** Plan trips dynamically with preferences, constraints, and real-time updates.  
 > Built for **ML Bhopal Hackathon**.
 
+🚀 **Live Production Website:** [https://nextripai-dun.vercel.app](https://nextripai-dun.vercel.app)  
+📦 **GitHub Repository:** [https://github.com/shriyash2006/Travel-Planning-Engine](https://github.com/shriyash2006/Travel-Planning-Engine)
+
 ![NEXTRIP.AI Demo](https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&auto=format&fit=crop&q=80)
 
 ---
@@ -53,7 +56,7 @@ NEXT_PUBLIC_GOOGLE_MAPS_KEY=your_google_maps_key
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+Open [http://localhost:3000](http://localhost:3000) to view locally, or access the live deployment at [https://nextripai-dun.vercel.app](https://nextripai-dun.vercel.app).
 
 ---
 
