@@ -28,7 +28,7 @@ export default function BudgetTracker({ totalBudget, currency, tripDays }: Budge
 
   // Load from localStorage or initialize with realistic sample data
   useEffect(() => {
-    const saved = localStorage.getItem('tripcraft_budget_entries');
+    const saved = localStorage.getItem('nextrip_budget_entries');
     if (saved) {
       try {
         setEntries(JSON.parse(saved));
@@ -71,7 +71,7 @@ export default function BudgetTracker({ totalBudget, currency, tripDays }: Budge
   // Persist to localStorage
   const updateEntries = (newEntries: BudgetEntry[]) => {
     setEntries(newEntries);
-    localStorage.setItem('tripcraft_budget_entries', JSON.stringify(newEntries));
+    localStorage.setItem('nextrip_budget_entries', JSON.stringify(newEntries));
   };
 
   const handleAddExpense = (e: React.FormEvent) => {
