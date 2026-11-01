@@ -1,0 +1,215 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(99, 179, 237, 0.4);
+}
+
+.highlightBadge {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+
+/* Flight Details */
+.flightMain {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.airlineInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 170px;
+}
+
+.airlineLogo {
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+}
+
+.airlineName {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.flightClass {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.timeSegment {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.timeCol {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.timeValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+}
+
+.timeCity {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.flightRoute {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 110px;
+}
+
+.routeDuration {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.routeLine {
+  width: 100%;
+  height: 2px;
+  background: var(--border);
+  position: relative;
+}
+
+.routeLine::after {
+  content: '✈';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: var(--accent-blue);
+}
+
+/* Hotel Details */
+.hotelMain {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.hotelImage {
+  width: 160px;
+  height: 110px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.hotelInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.hotelStars {
+  color: #fbbf24;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.hotelName {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.hotelLocation {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.amenitiesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.amenityChip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+/* Action Block */
+.actionCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 140px;
+  border-left: 1px solid var(--border);
+  padding-left: 20px;
+}
+
+.priceValue {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+}
+
+.priceSub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .actionCol {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 14px;
+  }
+}

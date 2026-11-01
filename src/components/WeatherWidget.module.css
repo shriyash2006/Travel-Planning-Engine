@@ -1,0 +1,124 @@
+.widget {
+  padding: 16px 20px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  max-width: 440px;
+}
+
+.widget:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.leftInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.weatherIcon {
+  width: 52px;
+  height: 52px;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+}
+
+.temp {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+  margin-top: 2px;
+}
+
+.cityTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statsRow {
+  display: flex;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-left: 1px solid var(--border);
+  padding-left: 14px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statVal {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.toggleIcon {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.toggleIconOpen {
+  transform: rotate(180deg);
+}
+
+.forecastContainer {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.forecastDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 4px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.forecastDate {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.miniIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.forecastTemps {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.forecastMin {
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: normal;
+}

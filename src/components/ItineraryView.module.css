@@ -1,0 +1,313 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.topBanner {
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.bannerTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bannerMeta {
+  display: flex;
+  gap: 24px;
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metaHighlight {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.tabsBar {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tabBtn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.tabBtnActive {
+  color: var(--accent-blue);
+  background: rgba(56, 189, 248, 0.1);
+  border-bottom: 2px solid var(--accent-blue);
+}
+
+/* Day Cards */
+.daysList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dayCard {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.dayHeader {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dayHeader:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.dayHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dayNumberBadge {
+  background: var(--gradient-btn);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.dayTheme {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.dayDate {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.dayCost {
+  font-size: 0.9rem;
+  color: var(--accent-green);
+  font-weight: 600;
+  margin-right: 14px;
+}
+
+.chevron {
+  color: var(--text-secondary);
+  transition: transform 0.3s;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Timeline */
+.timeline {
+  padding: 10px 22px 24px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  gap: 18px;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 16px;
+  bottom: -24px;
+  left: 7px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timelineItem:last-child .timelineLine {
+  display: none;
+}
+
+.timelineDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-top: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px currentColor;
+  z-index: 1;
+}
+
+.activityContent {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+}
+
+.activityTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.timeBadge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  background: rgba(56, 189, 248, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.activityName {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--accent-purple);
+  margin-bottom: 8px;
+}
+
+.activityDesc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.tipsBox {
+  background: rgba(251, 146, 60, 0.08);
+  border-left: 3px solid var(--accent-orange);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #fdba74;
+}
+
+.costRow {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Packing Checklist */
+.packingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  padding: 24px;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.checkItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.checked {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/* Tips & Culture */
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 24px;
+}
+
+.tipCard {
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+}
+
+.tipList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.emergencyItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.phoneNum {
+  color: var(--accent-teal);
+  font-weight: 600;
+}
